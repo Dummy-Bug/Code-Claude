@@ -7,7 +7,9 @@ authors = [
     { name = "Dummy-Bug", email = "laxyrajput@gmail.com" }
 ]
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "python-dotenv>=1.2.3",
+]
 
 [project.scripts]
 code-claude = "code_claude:main"
