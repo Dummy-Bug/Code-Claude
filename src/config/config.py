@@ -17,7 +17,7 @@ MAX_MODEL_CALLS_PER_RUN = int(os.getenv("MAX_MODEL_CALLS_PER_RUN", 10))
 MAX_READ_BYTES = int(os.getenv("MAX_READ_BYTES", 1024 * 1024))
 
 
-def get_working_directory() -> Path:
+def get_work_dir() -> Path:
     override = os.getenv("WORKING_DIRECTORY",DEFAULT_WORKING_DIR).strip()
     if override:
         return Path(override).expanduser().resolve()
