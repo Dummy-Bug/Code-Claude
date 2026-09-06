@@ -21,12 +21,12 @@ def write_file(path: str, content: str) -> str:
     if not path:
         return "Error: Path is required"
 
-    content = prepare_file_content(path, content)
-
     try:
         file_path = resolve_work_path(path)
     except ValueError as err:
         return f"Error: Path escapes working directory: {err}"
+
+    content = prepare_file_content(path, content)
 
     try:
         file_path.parent.mkdir(parents=True, exist_ok=True)
