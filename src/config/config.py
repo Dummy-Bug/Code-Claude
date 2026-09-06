@@ -18,11 +18,11 @@ MAX_READ_BYTES = int(os.getenv("MAX_READ_BYTES", 1024 * 1024))
 
 
 def get_work_dir() -> Path:
-    override = os.getenv("WORKING_DIRECTORY",DEFAULT_WORKING_DIR).strip()
+    override = os.getenv("WORKING_DIRECTORY", "").strip()
     if override:
         return Path(override).expanduser().resolve()
     return DEFAULT_WORKING_DIR.resolve()
 
-def is_hitl_enabled() -> bool:
-    return os.getenv("HITL_ENABLED" , "true").lower() in ("true", "1", "yes", "y")
 
+def is_hitl_enabled() -> bool:
+    return os.getenv("HITL_ENABLED", "true").lower() in ("true", "1", "yes", "y")

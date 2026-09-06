@@ -37,7 +37,8 @@ def resolve_work_path(path: str) -> Path:
 
     candidate = (work_dir / path).resolve()
     try:
-        candidate.relative_to(work_dir)
+        relative_path = candidate.relative_to(work_dir)
+        print(f"candidate relative path  {relative_path}")
     except ValueError:
         raise ValueError(f"Path {path} escapes the allowed working directory")
 
