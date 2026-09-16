@@ -11,7 +11,7 @@ def write_file(path: str, content: str) -> str:
 
     Works for any text file (.js, .java, .py etc).
     `content` is the full file body with real newline characters between lines. Do not wrap it
-    in Markdown fence. Do not encode line breads as the two-character sequence backslash-n.
+    in Markdown fences. Do not encode line breaks as the two-character sequence backslash-n.
 
     Args:
         path: Relative path of the file to create/overwrite (e.g. "README.md")
