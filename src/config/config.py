@@ -24,5 +24,5 @@ def get_work_dir() -> Path:
     return DEFAULT_WORKING_DIR.resolve()
 
 
-def is_hitl_enabled() -> bool:
-    return os.getenv("HITL_ENABLED", "true").lower() in ("true", "1", "yes", "y")
+def hitl_enabled() -> bool:
+    return os.getenv("HITL_ENABLED", "true").lower() in {"1", "true", "yes"}
