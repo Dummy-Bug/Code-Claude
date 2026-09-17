@@ -15,10 +15,12 @@ class Provider:
 
 
 PROVIDERS = [
+    Provider(name="OpenAI", env_var="OPEN_API_KEY", is_free=False, base_url=None, model="gpt-4o-mini"),
+    Provider(name="Google", env_var="GOOGLE_API_KEY", is_free=False, base_url=None, model="gemini-flash-latest"),
     Provider(name="Groq", env_var="GROQ_API_KEY", is_free=True,
              base_url="https://api.groq.com/openai/v1", model="openai/gpt-oss-120b"),
-    Provider(name="OpenAI", env_var="OPEN_API_KEY", is_free=False, base_url=None, model="gpt-4o-mini")
 ]
+
 
 def select_provider() -> Provider:
     for provider in PROVIDERS:
@@ -27,6 +29,7 @@ def select_provider() -> Provider:
 
     expected = ", ".join(p.env_var for p in PROVIDERS)
     raise RuntimeError(f"No provider key set, add one of {expected} to your environment variables")
+
 
 def build_chat_model() -> tuple[ChatOpenAI, Provider]:
     provider = select_provider()
